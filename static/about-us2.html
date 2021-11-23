@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>About Us | Galleon Mercado</title>
+  <meta property="og:title" content="Galleon Mercado | COMING SOON">
+  <meta property="og:description" content="The local marketplace for the new normal">
+  <meta property="og:image" content="http://mercado.galleon.ph//assets/img/github-preview2.png">
+  <meta property="og:url" content="http://mercado.galleon.ph"/>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet"> 
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/static.css" rel="stylesheet">
+
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/components/open-sans-fontface/open-sans.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/styles/fa.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/styles/www.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+  <body class="layout-page">
+    <section class="page-frame">
+      <header class="page-head"><div class="head-1">
+  <a class="hide-when-mobile" href="/document/sellers">Sell on Galleon.ph</a>
+  <a href="/document/customer-care">Customer Care</a>
+  <a href="/order/tracker">Track My Order</a>
+</div>
+
+<div class="head-2">
+  <a class="head-brand" href="/" title="Galleon.ph - Search, Discover, Buy.">
+    <img alt="Galleon.ph Logo" src="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/images/logo/mercado-logo-black.png" />
+  </a>
+
+  <div class="head-links">
+    <div class="dropdown-i18n dropdown d-inline-block" data-do="i18n-dropdown">
+      <a class="head-link i18n-link text-default dropdown-toggle" href="#">
+        EN
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        TODO
+      </div>
+    </div>
+
+    <div class="dropdown-cart dropdown d-inline-block" data-do-disabled="cart-dropdown">
+      <a class="head-link cart-link bg-pink text-light dropdown-toggle" href="/cart">
+        <i class="fas fa-shopping-basket"></i>
+      </a>
+
+      
+
+      <div class="dropdown-menu dropdown-menu-right">
+        
+  <form action="/cart" method="post" class="global-cart" data-do="cart" data-currency="₱">
+    <div class="global-cart-empty">
+      <div class="cart-icon-wrapper">
+        <img class="cart-icon" src="/images/shopping-cart-empty-side-view.png" alt="shopping-cart-empty-side-view" />
+      </div>
+      <h5 class="empty-label">Your Cart is Empty</h5>
+      <div class="discover-wrapper">
+        <p>Discover stores from these locations.</p>
+        <div>
+          <a class="location-shortcut text-orange" href="/manila-l914">Manila</a>
+          <a class="location-shortcut text-orange" href="/makati-city-l877">Makati</a>
+          <a class="location-shortcut text-orange" href="/taguig-city-l1397">Taguig</a>
+          <a class="location-shortcut text-orange" href="/pasig-city-l1105">Pasig</a>
+          <a class="location-shortcut text-orange" href="/mandaluyong-city-l908">Mandaluyong</a>
+          <a class="location-shortcut text-orange" href="/quezon-city-l1171">Quezon City</a>
+          <a class="location-shortcut text-orange" href="/pasay-city-l1104">Pasay</a>
+          <a class="location-shortcut text-orange" href="/san-juan-l1678">San Juan</a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+<script type="text/javascript">
+jQuery(function($) {
+  var recalculate = function(e, trigger) {
+    setTimeout(function() {
+      var item = $(trigger).parent().parent().parent();
+      var store = item.parent().parent();
+      var cart = store.parent().parent().parent();
+      var toggles = {
+        price: $('.item-unit-price', item),
+        unitTotal: $('.item-unit-total', item),
+        lines: $('.store-line-items', store),
+        total: $('.global-cart-total', cart),
+        checkout: $('.btn-checkout', cart),
+        update: $('.btn-update', cart)
+      };
+
+      var price = parseFloat(toggles.price.data('value'));
+      var qtyStart = parseFloat(item.data('qty-start'));
+      var quantity = parseFloat($(trigger).val());
+
+      toggles.unitTotal.text(toPrice(price * quantity));
+
+      if (qtyStart !== quantity) {
+        toggles.lines.hide();
+        toggles.total.hide();
+        toggles.checkout.hide();
+        toggles.update.show();
+      } else {
+        toggles.lines.show();
+        toggles.total.show();
+        toggles.checkout.show();
+        toggles.update.hide();
+      }
+    });
+  };
+
+  $(window).on('item-quantity-keyup', recalculate);
+  $(window).on('item-quantity-mouseup', recalculate);
+
+  var toPrice = function(number) {
+    return (Math.ceil(number * 100) / 100).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  }
+});
+</script>
+
+      </div>
+    </div>
+
+    
+      <div class="dropdown-user dropdown d-inline-block">
+        <a class="head-link user-link bg-pink text-light dropdown-toggle" href="/auth/login">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          TODO
+        </div>
+      </div>
+    
+  </div>
+
+  
+</div>
+
+
+</header>
+
+<!-- END HEADERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR -->
+
+
+<section class="page-body">
+
+
+
+  <main id="main">
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="col-lg-12" style="text-align:center;">
+
+          <img src="`galleon-logo-256px.png" alt="">
+
+          <h1 style="padding: 1em 0 0;">Who We Are</h1>
+
+          <p style="font-size:11pt;padding: 1em 0;">Sterling Galleon Mercado, is a Hyperlocal Online Marketplace geared towards serving customers and sellers as we make way for the new normal.</p>
+
+          <p style="font-size:11pt">We are an extension of Galleon.ph, a long standing e-commerce site operating since 2012 and is part of Sterling Paper group of Companies which showcases products NOT available in the Philippines.</p><!--EndFragment-->
+
+          <hr style="margin: 4em 0;">
+        </div>
+
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>BRAVE NEW FRONTIERS WITH GALLEON!</h2>
+          <p>Galleon Mercado is a LOCAL online marketplace geared to this new age of post COVID-19. </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="image">
+              <img src="https://sterling-galleon.github.io/mercado/assets/img/about.png" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
+              <h3>Stay safe and order online!</h3>
+              <p class="font-italic">
+                Galleon Mercado offers a wide range of delivery options for you.
+              </p>
+              <ul>
+                <li><i class="bx bx-check-double"></i> See sellers that are able to deliver to your area. </li>
+                <li><i class="bx bx-check-double"></i> Same day delivery</li>
+                <li><i class="bx bx-check-double"></i> Pickup option </li>
+                <li><i class="bx bx-check-double"></i> Affordable shipping rates </li>
+                <li><i class="bx bx-check-double"></i> Receive SMS and email notifications every step of the way. </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Safe and Secure for Sellers and Buyers</h2>
+          <p>We value the security of our community, so we've gone through great lengths to keep things safe for you.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up">
+              <i class="icofont-ssl-security"></i>
+              <h4>Secure payments through Galleon!</h4>
+              <p>We’ll hold your money until your order is delivered.</p>
+            </div>
+            <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="100">
+              <i class="icofont-pay"></i>
+              <h4>Pay online via your preferred payment method.</h4>
+              <p>Pay via Credit Card, Paypal, Dragonpay, Gcash, and more</p>
+            </div>
+            <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="200">
+              <i class="icofont-law-order"></i>
+              <h4>Unresolved order disputes with Sellers to be arbitrated by Galleon</h4>
+              <p>We've got your back.</p>
+            </div>
+            <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="300">
+              <i class="icofont-ui-rating"></i>
+              <h4>Transparent seller ratings</h4>
+              <p>Trusted sellers, safer transactions</p>
+            </div>
+          </div>
+          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url("https://sterling-galleon.github.io/mercado/assets/img/services.jpg");' data-aos="fade-left" data-aos-delay="100"></div>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+ 
+    <!-- ======= Delivery Partners Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Our Delivery Partners</h1>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/lalamove.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/grab.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/transportify.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/mrspeedy.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="400">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/blitz.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/mober.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/happymove.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/lastmile.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/angkas.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/joyride.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/airship.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+            <img src="https://sterling-galleon.github.io/mercado/assets/img/partners/payo.png" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Delivery Partners Section -->
+
+
+
+ 
+
+  </main><!-- End #main -->
+
+
+</section>
+      
+      
+
+
+
+
+
+ <!-- ============================ Footer ========================= -->
+  <footer class="page-foot"><div class="container pt-4">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a class="brand" href="/" title="Galleon.ph - Search, Discover, Buy.">
+        <img alt="Galleon.ph Logo" src="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/images/logo/mercado-logo-black.png" />
+      </a>
+
+      <address class="location">
+        <i class="fas fa-fw fa-map-marker-alt"></i>
+        Unit 2502-2503, 25th flr Raffles Corporate Center, F. Ortigas Jr. Ave, Ortigas Center, Pasig City, Metro Manila, Philippines 1600
+      </address>
+
+      <a class="link-email text-default" href="/cdn-cgi/l/email-protection#3a575f48595b5e5514494f4a4a55484e7a5d5b56565f5554144a52">
+        <i class="fas fa-fw fa-envelope"></i>
+        <span class="__cf_email__" data-cfemail="29444c5b4a484d46075a5c5959465b5d694e4845454c4647075941">[email&#160;protected]</span>
+      </a>
+
+    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a class="text-default link-sitemap" href="./index.html" title="Home">Home</a>
+      <a class="text-default link-sitemap" href="./about-us.html" title="About Us">About Us</a>
+      <a class="text-default link-sitemap" href="./how-to-buy.html" title="How to Buy Guide">How to Buy Guide</a>
+      <a class="text-default link-sitemap" href="./payment.html" title="Payment">Payment</a>
+      <a class="text-default link-sitemap" href="./delivery-schedule.html" title="Delivery Schedule">Delivery Schedule</a>
+      <a class="text-default link-sitemap" href="./restricted-items.html" title="Restricted Items">Restricted Items</a>
+      <a class="text-default link-sitemap" href="./cancellations-and-returns.html" title="Cancellations and Returns">Cancellations &amp; Returns</a>
+      <a class="text-default link-sitemap" href="./privacy-policy.html" title="Privacy Policy">Privacy Policy</a>
+      <a class="text-default link-sitemap" href="./terms-and-conditions.html" title="Terms and Conditions">Terms And Conditions</a>
+      <a class="text-default link-sitemap" href="#" title="Warranty and Returns">Warranty And Returns</a>
+      <a class="text-default link-sitemap" href="./faq.html" title="Support and FAQ">Support And FAQ</a>
+      <a class="text-default link-sitemap" href="#" target="_blank" title="Business Documents">Business Documents</a>
+      <a class="text-default link-sitemap" href="#" target="_blank" title="Sell on Mercado">Sell on Mercado</a>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <h3>WHO WE ARE</h3>
+      <p>STERLING GALLEON MERCADO is a LOCAL online marketplace geared to this new age of post-COVID-19. We are part of the STERLING PAPER GROUP OF COMPANIES.</p>
+
+      <h3>SHOPPING REDEFINED!</h3>
+
+      <p>Providing you the ability to discover sellers and search for great finds just around your city, directly sent to the convenience of your homes.</p>
+
+      <h3>HASSLE-FREE PAYMENT</h3>
+
+      <p>Pay via any of our multiple payment channels such as Paypal, Dragon pay,  online bank transfers, and over the counter payments.</p>
+
+      <h3>SAFER TRANSACTIONS</h3>
+
+      <p>We value our customers and rest assured that our sellers are trusted merchants. Any unresolved order disputes with sellers will be arbitrated by Galleon Mercado. You can be sure that your transactions and payments are safe with us.</p>
+    </div>
+  </div>
+</div>
+</footer><!-- End Footer -->
+
+  
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

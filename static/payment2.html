@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Payments | Galleon Mercado</title>
+  <meta property="og:title" content="Galleon Mercado | COMING SOON">
+  <meta property="og:description" content="The local marketplace for the new normal">
+  <meta property="og:image" content="http://mercado.galleon.ph//assets/img/github-preview2.png">
+  <meta property="og:url" content="http://mercado.galleon.ph"/>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet"> 
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/static.css" rel="stylesheet">
+
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/components/open-sans-fontface/open-sans.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/styles/fa.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/styles/www.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+  <body class="layout-page">
+    <section class="page-frame">
+      <header class="page-head"><div class="head-1">
+  <a class="hide-when-mobile" href="/document/sellers">Sell on Galleon.ph</a>
+  <a href="/document/customer-care">Customer Care</a>
+  <a href="/order/tracker">Track My Order</a>
+</div>
+
+<div class="head-2">
+  <a class="head-brand" href="/" title="Galleon.ph - Search, Discover, Buy.">
+    <img alt="Galleon.ph Logo" src="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/images/logo/mercado-logo-black.png" />
+  </a>
+
+  <div class="head-links">
+    <div class="dropdown-i18n dropdown d-inline-block" data-do="i18n-dropdown">
+      <a class="head-link i18n-link text-default dropdown-toggle" href="#">
+        EN
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        TODO
+      </div>
+    </div>
+
+    <div class="dropdown-cart dropdown d-inline-block" data-do-disabled="cart-dropdown">
+      <a class="head-link cart-link bg-pink text-light dropdown-toggle" href="/cart">
+        <i class="fas fa-shopping-basket"></i>
+      </a>
+
+      
+
+      <div class="dropdown-menu dropdown-menu-right">
+        
+  <form action="/cart" method="post" class="global-cart" data-do="cart" data-currency="₱">
+    <div class="global-cart-empty">
+      <div class="cart-icon-wrapper">
+        <img class="cart-icon" src="/images/shopping-cart-empty-side-view.png" alt="shopping-cart-empty-side-view" />
+      </div>
+      <h5 class="empty-label">Your Cart is Empty</h5>
+      <div class="discover-wrapper">
+        <p>Discover stores from these locations.</p>
+        <div>
+          <a class="location-shortcut text-orange" href="/manila-l914">Manila</a>
+          <a class="location-shortcut text-orange" href="/makati-city-l877">Makati</a>
+          <a class="location-shortcut text-orange" href="/taguig-city-l1397">Taguig</a>
+          <a class="location-shortcut text-orange" href="/pasig-city-l1105">Pasig</a>
+          <a class="location-shortcut text-orange" href="/mandaluyong-city-l908">Mandaluyong</a>
+          <a class="location-shortcut text-orange" href="/quezon-city-l1171">Quezon City</a>
+          <a class="location-shortcut text-orange" href="/pasay-city-l1104">Pasay</a>
+          <a class="location-shortcut text-orange" href="/san-juan-l1678">San Juan</a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+<script type="text/javascript">
+jQuery(function($) {
+  var recalculate = function(e, trigger) {
+    setTimeout(function() {
+      var item = $(trigger).parent().parent().parent();
+      var store = item.parent().parent();
+      var cart = store.parent().parent().parent();
+      var toggles = {
+        price: $('.item-unit-price', item),
+        unitTotal: $('.item-unit-total', item),
+        lines: $('.store-line-items', store),
+        total: $('.global-cart-total', cart),
+        checkout: $('.btn-checkout', cart),
+        update: $('.btn-update', cart)
+      };
+
+      var price = parseFloat(toggles.price.data('value'));
+      var qtyStart = parseFloat(item.data('qty-start'));
+      var quantity = parseFloat($(trigger).val());
+
+      toggles.unitTotal.text(toPrice(price * quantity));
+
+      if (qtyStart !== quantity) {
+        toggles.lines.hide();
+        toggles.total.hide();
+        toggles.checkout.hide();
+        toggles.update.show();
+      } else {
+        toggles.lines.show();
+        toggles.total.show();
+        toggles.checkout.show();
+        toggles.update.hide();
+      }
+    });
+  };
+
+  $(window).on('item-quantity-keyup', recalculate);
+  $(window).on('item-quantity-mouseup', recalculate);
+
+  var toPrice = function(number) {
+    return (Math.ceil(number * 100) / 100).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  }
+});
+</script>
+
+      </div>
+    </div>
+
+    
+      <div class="dropdown-user dropdown d-inline-block">
+        <a class="head-link user-link bg-pink text-light dropdown-toggle" href="/auth/login">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          TODO
+        </div>
+      </div>
+    
+  </div>
+
+  
+</div>
+
+
+</header>
+
+<!-- END HEADERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR -->
+
+
+<section class="page-body">
+
+
+
+  <main id="main">
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="col-lg-12" style="text-align:left;">
+          <center>
+          <img src="../assets/img/galleon-logo-256px.png" alt="">
+
+          <h1 style="padding: 1em 0;">Payments</h1>
+        </center>
+          <!--StartFragment-->
+
+          <!--StartFragment--><b>What are the payment methods supported by Galleon Mercado?</b><br><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">On the checkout page, you may choose from the following payment methods:</span><br><ol><li><span style="background-color: transparent; font-size: 11pt;"><b>Via Paypal</b>&nbsp;(for credit card) and Dragonpay</span></li><li><span style="background-color: transparent; font-size: 11pt;"><b>Via Online Banking: </b>BPI, Chinabank, East West Bank, Metrobank, PBCom, PNB, PSBank, RCBC, Robinsons Bank, Security Bank, Sterling Bank, UCPB, Union Bank.</span></li><li><span style="background-color: transparent; font-size: 11pt;"><b>Via Mobile App: </b>AUB, BPI, Chinabank, Landbank, Maybank, Metrobank, PNB Savings Bank, UCPB, Unionbank, GCash, PayMaya</span></li><li><span style="background-color: transparent; font-size: 11pt;"><b>Via Over the Counter:</b>&nbsp;Bayad Center, Chinabank, East West Bank, Equicom, ECPay, Landbank, LBC, Malayan Bank, Metrobank, M. Lhuillier, PNB, RCBC, Security Bank, SM, Sterling Bank, Sun Savings Bank, UCPB, Unionbank</span></li><li><span style="background-color: transparent; font-size: 11pt;"><b>Via GCash/PayMaya Virtual Card Pay</b>&nbsp;for Credit Card/Paypal or to transfer money to our BDO Account. </span></li></ol><span style="color: rgb(75, 75, 75); background-color: rgb(255, 255, 255);">Note: Payment will be in prepaid in FULL prior to fulfillment of an order</span><br><br>
+
+          <hr style="margin: 2em 0;">
+          <b>Why is Cash Upon Delivery (COD) not acceptable as a payment option?</b><br><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">Cash Upon Delivery is not available for all transactions for Buyers protection. Galleon Mercado secures Buyers by holding money until the tracking shows that your order is delivered, this way Sellers are not able to scam Buyers. </span><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">Also, Sellers ship items through their preferred Delivery Partners</span><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">&nbsp;which we do not have control in Cash Upon Delivery (COD). <br><br></span><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">We are encouraging Buyers to make payments using these convenient and secured Payment Methods: </span><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">(<a rel="nofollow" href="https://docs.google.com/document/d/11iPHcC2njne6xINgEvLuDOn71bUqNpHCgJddTAtXTDQ/edit#heading=h.jcwci2yrwigc">Click Here</a>)</span>
+
+          <hr style="margin: 2em 0;">
+          <b>How to make an Over the Counter payment?</b><br><ol><li> On the Checkout page, click on Choose Payment</li><li> Under "Via Over the Counter", choose the payment center that is convenient to you:</li></ol><b>For Bayad Center/ChinaBank/EastWest Bank/ ECpay/ LandBank/ LBC/ Metrobank/ M. Lhullier/ PNB/ RCBC/ Robinsons Bank/ Security Bank/ SM/ Sterling Bank/ UCPB/ UnionBank</b><br><ol><li>Redirected to dragon pay and enter your source of payment.</li><li>Then enter your email/number.</li><li>Then you'll receive an instruction on how to pay in your email or mobile number.</li></ol><b>For Equicom / Malayan Bank / Sun Savings Bank<br></b><ol><li><span style="font-size: 14.6667px;">Click on "Instructions"</span></li><li><span style="font-size: 14.6667px;">Then follow on how to pay using the mobile app via instapay.</span></li><li><span style="font-size: 14.6667px;">Once done enter confirmation reference and upload a screenshot of the confirmation from the app.</span></li><li><span style="font-size: 14.6667px;">Then press confirm</span></li></ol>
+
+          <hr style="margin: 2em 0;">
+          <b>How to make a credit card/debit card payment?</b><br><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">You don't need to create a Paypal Account if paying with Credit Card/Debit Card. Please follow these step-by-step instructions:</span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">On the checkout page, choose "Paypal" as your payment method, then press â"Confirm Payment" You will be redirected to Paypal website.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Press "Pay with a Bank Account or Credit Card" Button,</span></li><li><span style="background-color: transparent; font-size: 11pt;">Type in your Card details, Billing Address, Contact Information, and make sure to agree on Paypal's Privacy Statement, then</span></li><li><span style="background-color: transparent; font-size: 11pt;">Press "Pay Now" button</span></li><li><span style="background-color: transparent; font-size: 11pt;">Optional: After payment Press Button "Return to Merchant"</span></li></ol><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">Note: No need to create a Paypal account if paying with credit/debit card. Subsidized Paypal Transaction Fee of 4.5% + Php 15.00 to be shouldered by the Buyer.<br><span style="background-color: transparent;">
+
+          <hr style="margin: 2em 0;">
+            <b>How to make an online banking payment?</b></span></span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">On the Checkout page, click on Choose Payment</span></li><li><span style="background-color: transparent; font-size: 11pt;">Under "Via Online Banking", choose your preferred Bank:</span></li></ol><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;"><b> For BPI/Chinabank/Metrobank/PNB/Security Bank/Sterling Bank/UCPB/UnionBank</b></span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">You will be redirected to DragonPay, choose your source of payment.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then type in your email/number.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then you'll receive instructions on how to pay through your email or mobile number.</span></li></ol><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;"><b> For Eastwest bank/PBcom/PSBank/RCBC/ thought Robinsons Bank</b></span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Click on "Instructions"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then follow on how to pay using the mobile app via Instapay.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Once done, type in the confirmation reference and upload a screenshot of the confirmation from the app.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then press confirm.</span></li></ol>
+
+            <hr style="margin: 2em 0;">
+            <b>How to make a payment via mobile app?</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;"> On the Checkout page, click on Choose Payment</span></li><li><span style="background-color: transparent; font-size: 11pt;"> Under "Via Mobile App", choose the mobile app that is convenient to you</span></li></ol><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">  <b>For AUB/ BPI/ ChinaBank/ LandBank/ MayBank/ Metrobank/ PNB/ UCPB/ UnionBank</b></span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Click on "Instructions"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then follow on how to pay using the mobile app via Instapay.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Once done, type in the confirmation reference and upload a screenshot of the confirmation from the app.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then press confirm.</span></li></ol>
+
+            <hr style="margin: 2em 0;">
+            <b>How to Pay with GCAsh/ PayMaya Virtual Card?</b><br> <br> <b>For GCash Payment:</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Open the GCash App</span></li><li><span style="background-color: transparent; font-size: 11pt;">Select "Show More" and then select "Pay Online"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Select Pay with American Express VirtualPay"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Enter your Email Address</span></li><li><span style="background-color: transparent; font-size: 11pt;">Confirm by selecting "Okay"</span></li><li><span style="background-color: transparent; font-size: 11pt;">You will receive a confirmation sent to your email, and you can now enjoy using your GCash American Express Virtual Card to pay via Paypal, Credit Card, you may also use bank transfer option to deposit to our BDO account</span></li></ol> <b>For PayMaya:</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Once you successfully register from PayMaya</span></li><li><span style="background-color: transparent; font-size: 11pt;">Open the PayMaya App to activate your virtual card</span></li><li><span style="background-color: transparent; font-size: 11pt;">Select "Online Payment Card Number"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Type in your personal information</span></li><li><span style="background-color: transparent; font-size: 11pt;">You now have your very own PayMaya virtual card to pay via Paypal, Credit Card, you may also use bank transfer option to deposit to our BDO account.</span></li></ol>
+
+            <hr style="margin: 2em 0;">
+            <b>Can I change my payment method?</b><br><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">Buyers can only change the payment method if the payment has not been made yet. </span><span style="color: rgb(75, 75, 75); background-color: transparent; font-size: 11pt;">You can choose your payment methods on the checkout page.<br></span><!--EndFragment-->
+
+        </div>
+        
+      </div>
+    </section>
+  </main><!-- End #main -->
+
+
+</section>
+      
+      
+
+
+
+
+
+ <!-- ============================ Footer ========================= -->
+  <footer class="page-foot"><div class="container pt-4">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a class="brand" href="/" title="Galleon.ph - Search, Discover, Buy.">
+        <img alt="Galleon.ph Logo" src="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/images/logo/mercado-logo-black.png" />
+      </a>
+
+      <address class="location">
+        <i class="fas fa-fw fa-map-marker-alt"></i>
+        Unit 2502-2503, 25th flr Raffles Corporate Center, F. Ortigas Jr. Ave, Ortigas Center, Pasig City, Metro Manila, Philippines 1600
+      </address>
+
+      <a class="link-email text-default" href="/cdn-cgi/l/email-protection#3a575f48595b5e5514494f4a4a55484e7a5d5b56565f5554144a52">
+        <i class="fas fa-fw fa-envelope"></i>
+        <span class="__cf_email__" data-cfemail="29444c5b4a484d46075a5c5959465b5d694e4845454c4647075941">[email&#160;protected]</span>
+      </a>
+
+    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a class="text-default link-sitemap" href="./index.html" title="Home">Home</a>
+      <a class="text-default link-sitemap" href="./about-us.html" title="About Us">About Us</a>
+      <a class="text-default link-sitemap" href="./how-to-buy.html" title="How to Buy Guide">How to Buy Guide</a>
+      <a class="text-default link-sitemap" href="./payment.html" title="Payment">Payment</a>
+      <a class="text-default link-sitemap" href="./delivery-schedule.html" title="Delivery Schedule">Delivery Schedule</a>
+      <a class="text-default link-sitemap" href="./restricted-items.html" title="Restricted Items">Restricted Items</a>
+      <a class="text-default link-sitemap" href="./cancellations-and-returns.html" title="Cancellations and Returns">Cancellations &amp; Returns</a>
+      <a class="text-default link-sitemap" href="./privacy-policy.html" title="Privacy Policy">Privacy Policy</a>
+      <a class="text-default link-sitemap" href="./terms-and-conditions.html" title="Terms and Conditions">Terms And Conditions</a>
+      <a class="text-default link-sitemap" href="#" title="Warranty and Returns">Warranty And Returns</a>
+      <a class="text-default link-sitemap" href="./faq.html" title="Support and FAQ">Support And FAQ</a>
+      <a class="text-default link-sitemap" href="#" target="_blank" title="Business Documents">Business Documents</a>
+      <a class="text-default link-sitemap" href="#" target="_blank" title="Sell on Mercado">Sell on Mercado</a>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <h3>WHO WE ARE</h3>
+      <p>STERLING GALLEON MERCADO is a LOCAL online marketplace geared to this new age of post-COVID-19. We are part of the STERLING PAPER GROUP OF COMPANIES.</p>
+
+      <h3>SHOPPING REDEFINED!</h3>
+
+      <p>Providing you the ability to discover sellers and search for great finds just around your city, directly sent to the convenience of your homes.</p>
+
+      <h3>HASSLE-FREE PAYMENT</h3>
+
+      <p>Pay via any of our multiple payment channels such as Paypal, Dragon pay,  online bank transfers, and over the counter payments.</p>
+
+      <h3>SAFER TRANSACTIONS</h3>
+
+      <p>We value our customers and rest assured that our sellers are trusted merchants. Any unresolved order disputes with sellers will be arbitrated by Galleon Mercado. You can be sure that your transactions and payments are safe with us.</p>
+    </div>
+  </div>
+</div>
+</footer><!-- End Footer -->
+
+  
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

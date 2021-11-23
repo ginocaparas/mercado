@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>FAQs | Galleon Mercado</title>
+  <meta property="og:title" content="Galleon Mercado | COMING SOON">
+  <meta property="og:description" content="The local marketplace for the new normal">
+  <meta property="og:image" content="http://mercado.galleon.ph//assets/img/github-preview2.png">
+  <meta property="og:url" content="http://mercado.galleon.ph"/>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet"> 
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/static.css" rel="stylesheet">
+
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/components/open-sans-fontface/open-sans.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/styles/fa.css" rel="stylesheet" type="text/css" />
+  <link href="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/styles/www.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+  <body class="layout-page">
+    <section class="page-frame">
+      <header class="page-head"><div class="head-1">
+  <a class="hide-when-mobile" href="/document/sellers">Sell on Galleon.ph</a>
+  <a href="/document/customer-care">Customer Care</a>
+  <a href="/order/tracker">Track My Order</a>
+</div>
+
+<div class="head-2">
+  <a class="head-brand" href="/" title="Galleon.ph - Search, Discover, Buy.">
+    <img alt="Galleon.ph Logo" src="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/images/logo/mercado-logo-black.png" />
+  </a>
+
+  <div class="head-links">
+    <div class="dropdown-i18n dropdown d-inline-block" data-do="i18n-dropdown">
+      <a class="head-link i18n-link text-default dropdown-toggle" href="#">
+        EN
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        TODO
+      </div>
+    </div>
+
+    <div class="dropdown-cart dropdown d-inline-block" data-do-disabled="cart-dropdown">
+      <a class="head-link cart-link bg-pink text-light dropdown-toggle" href="/cart">
+        <i class="fas fa-shopping-basket"></i>
+      </a>
+
+      
+
+      <div class="dropdown-menu dropdown-menu-right">
+        
+  <form action="/cart" method="post" class="global-cart" data-do="cart" data-currency="₱">
+    <div class="global-cart-empty">
+      <div class="cart-icon-wrapper">
+        <img class="cart-icon" src="/images/shopping-cart-empty-side-view.png" alt="shopping-cart-empty-side-view" />
+      </div>
+      <h5 class="empty-label">Your Cart is Empty</h5>
+      <div class="discover-wrapper">
+        <p>Discover stores from these locations.</p>
+        <div>
+          <a class="location-shortcut text-orange" href="/manila-l914">Manila</a>
+          <a class="location-shortcut text-orange" href="/makati-city-l877">Makati</a>
+          <a class="location-shortcut text-orange" href="/taguig-city-l1397">Taguig</a>
+          <a class="location-shortcut text-orange" href="/pasig-city-l1105">Pasig</a>
+          <a class="location-shortcut text-orange" href="/mandaluyong-city-l908">Mandaluyong</a>
+          <a class="location-shortcut text-orange" href="/quezon-city-l1171">Quezon City</a>
+          <a class="location-shortcut text-orange" href="/pasay-city-l1104">Pasay</a>
+          <a class="location-shortcut text-orange" href="/san-juan-l1678">San Juan</a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+<script type="text/javascript">
+jQuery(function($) {
+  var recalculate = function(e, trigger) {
+    setTimeout(function() {
+      var item = $(trigger).parent().parent().parent();
+      var store = item.parent().parent();
+      var cart = store.parent().parent().parent();
+      var toggles = {
+        price: $('.item-unit-price', item),
+        unitTotal: $('.item-unit-total', item),
+        lines: $('.store-line-items', store),
+        total: $('.global-cart-total', cart),
+        checkout: $('.btn-checkout', cart),
+        update: $('.btn-update', cart)
+      };
+
+      var price = parseFloat(toggles.price.data('value'));
+      var qtyStart = parseFloat(item.data('qty-start'));
+      var quantity = parseFloat($(trigger).val());
+
+      toggles.unitTotal.text(toPrice(price * quantity));
+
+      if (qtyStart !== quantity) {
+        toggles.lines.hide();
+        toggles.total.hide();
+        toggles.checkout.hide();
+        toggles.update.show();
+      } else {
+        toggles.lines.show();
+        toggles.total.show();
+        toggles.checkout.show();
+        toggles.update.hide();
+      }
+    });
+  };
+
+  $(window).on('item-quantity-keyup', recalculate);
+  $(window).on('item-quantity-mouseup', recalculate);
+
+  var toPrice = function(number) {
+    return (Math.ceil(number * 100) / 100).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  }
+});
+</script>
+
+      </div>
+    </div>
+
+    
+      <div class="dropdown-user dropdown d-inline-block">
+        <a class="head-link user-link bg-pink text-light dropdown-toggle" href="/auth/login">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          TODO
+        </div>
+      </div>
+    
+  </div>
+
+  
+</div>
+
+
+</header>
+
+<!-- END HEADERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR -->
+
+
+<section class="page-body">
+
+
+
+  <main id="main">
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="col-lg-12" style="text-align:left;">
+          <center>
+          <img src="../assets/img/galleon-logo-256px.png" alt="">
+
+          <h1 style="padding: 1em 0;">Frequently Asked Questions</h1>
+          </center>
+          
+
+<!--StartFragment--><h2>About Us</h2><span style="background-color: transparent; font-size: 11pt;"><b> <br>Who are We</b><br>Sterling Galleon Mercado, is a Hyperlocal Online Marketplace geared towards serving customers and sellers as we make way for the new normal.&nbsp;<br><span style="background-color: transparent; font-size: 11pt;">We are an extension of </span><a rel="nofollow" href="https://www.galleon.ph/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Galleon.ph</span></a><span style="background-color: transparent; font-size: 11pt;">, a long standing e-commerce site operating since 2012 and is part of Sterling Paper group of Companies which showcases products NOT available in the Philippines.</span><br><br></span><b>How to contact Galleon Mercado Customer Support Team?</b><br><span style="background-color: transparent; font-size: 11pt;">We have formed a skeletal team working from home to address your concerns and inquiries. For now,&nbsp;you may reach our Customer Support Team via:<br></span><b><span style="background-color: transparent; font-size: 11pt;"> <br></span></b><span style="background-color: transparent; font-size: 11pt;"><b>Live Chat through our FB Page</b><span style="background-color: transparent; font-size: 11pt;">: </span><a rel="nofollow" href="https://m.me/galleonmercado">https://m.me/galleonmercado</a></span><a rel="nofollow" href="https://m.me/galleonmercado"></a><br><b>Email: </b>
+
+<a href="mailto:support.mercado@galleon.ph">support.mercado@galleon.ph</a>
+
+<hr style="margin: 2em 0;">
+<h2>Accounts and Registration&nbsp;</h2><br><b>Do I need to register first to buy from Galleon Mercado?</b><br><span style="background-color: transparent; font-size: 11pt;">You may buy&nbsp; from Galleon Mercado as a Guest or you may register as a Buyer after placing an order.&nbsp;<br></span><span style="background-color: transparent; font-size: 11pt;">Please make sure that the mobile number and email address you used upon checkout is the one you will use upon registration.<br><br></span><b>How to register as a Buyer?</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">To register an account:</span></li><li>Go to our Galleon Mercado website at <a rel="nofollow" href="https://mercado.galleon.ph/home"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">http://mercado.galleon.ph/home</span></a></li><li>Click on the icon at the upper right side of the page</li><li>Click "Sign Up Here"</li><li>Please enter your Full Name, Mobile Number and Password</li><li>Then Click on "Sign Up" (<span style="background-color: transparent; font-size: 11pt;">For verification purposes, we send a 4 digit code to the registered mobile number)</span></li><li>Type in the 4 digit verification code we sent on to your registered mobile number and click on "Submit" to register</li><li>You will be redirected to the Login Page</li><li>Now type in your Registered Mobile Number and Password to start Shopping.</li></ol><b>What to do if I forget my password?</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Go to our Galleon Mercado website at </span><a rel="nofollow" href="https://mercado.galleon.ph/home"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">http://mercado.galleon.ph/home</span></a></li><li><span style="background-color: transparent; font-size: 11pt;">Click on the icon at the upper right side of the page</span></li><li><span style="background-color: transparent; font-size: 11pt;">Click on "Forget Password"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Enter your registered Mobile Number</span></li><li><span style="background-color: transparent; font-size: 11pt;">We'll send you a 4 digit verification code on to your registered mobile number and type in the code and click on "Submit"</span></li><li><span style="background-color: transparent; font-size: 11pt;">You may now type in your new password and confirm it.</span></li></ol><span style="background-color: transparent; font-size: 11pt;">NOTE: If an error still exist please report by contacting our Customer Service Team via FB live chat: <a rel="nofollow" href="https://m.me/galleonmercado">https://m.me/galleonmercado</a><!--EndFragment-->
+
+ &nbsp;or you may send an email to <a href="mailto:support.mercado@galleon.ph">support.mercado@galleon.ph</a>
+
+</span><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;"><br><br></span><b>What to do if my account got deactivated?</b><br>Please report by contacting our Customer Service Team via FB live chat:&nbsp;<a rel="nofollow" href="https://m.me/galleonmercado">https://m.me/galleonmercado</a><!--EndFragment-->
+
+ &nbsp;or you may send an email to <a href="mailto:support.mercado@galleon.ph">support.mercado@galleon.ph</a> if your account got deactivated.<br>
+
+ <hr style="margin: 2em 0;">
+ <h2>Browse Products</h2><br><b>How to search products from Galleon Mercado?</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Go to Galleon Mercado page </span><a rel="nofollow" href="https://mercado.galleon.ph/home"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">http://mercado.galleon.ph/home</span></a></li><li><span style="background-color: transparent; font-size: 11pt;">Click on the city you are in (</span><span style="background-color: transparent; font-size: 11pt;">with Hyperlocal Services, Galleon Mercado display stores delivering within your area) </span></li><li><span style="background-color: transparent; font-size: 11pt;">On the top left, choose which Department your product is in,</span></li><li><span style="background-color: transparent; font-size: 11pt;">Browse product categories/sub-categories or shop by Brands or,</span></li><li><span style="background-color: transparent; font-size: 11pt;">You may also sort the products by: most popular, biggest discount amount, featured products, newest, etc.</span></li></ol><b>How do I search for a specific product?</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Go to Galleon Mercado page </span><a rel="nofollow" href="https://mercado.galleon.ph/home"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">http://mercado.galleon.ph/home</span></a></li><li><span style="background-color: transparent; font-size: 11pt;">Click on the city you are in (</span><span style="background-color: transparent; font-size: 11pt;">with Hyperlocal Services, Galleon Mercado display stores delivering within your area) </span></li><li><span style="background-color: transparent; font-size: 11pt;">Then Click the "Search Bar" and type in the item or product that you are searching for</span></li></ol>
+
+ <hr style="margin: 2em 0;">
+ <h2>Orders</h2><h3><b> </b></h3><b></b><br><b>How to buy from Galleon Mercado?<br></b><br><ol><li>Go to our Galleon Mercado website at <a rel="nofollow" href="https://mercado.galleon.ph/home">http://mercado.galleon.ph/home</a></li><li>Browse categories/sub-categories or use product search to find product you want to buy</li><li>On the product page, click on "Add to Cart" for the product you wish to buy. Please make sure to check the product detail page for variation. You may choose or indicate preferred; quantity, color, size, etc. You may also type in the promo code.</li><li>Once you click on  “Add to Cart”,, you will be redirected to the “Shopping Cart”.</li><li>Select the products you want to buy from your Shopping Cart and click ”Proceed to “Checkout” Out</li><li>On the Check Out page, type in your personal information: Full Name, Mobile Number, Email Address, Billing Address, Shipping Address</li><li>Please check product summary. Note: You may click on "Change my Cart" if you want to go back to the "Shopping Cart" if there will be changes on your order.</li><li>Choose your Payment with various payment service providers to process your order.</li><li>Lastly, you must check the box that shows agreement and consent to the <b>Galleon Mercado Terms and Conditions</b> and <b>Privacy Policy</b>, before you click on "Submit Order</li></ol><br><b>Can I Checkout Multiple Products From Different Sellers In My Cart At Once?</b><br><span style="background-color: transparent; font-size: 11pt;">Yes, you may add multiple products from different Sellers in your cart at once.</span><span style="background-color: transparent; font-size: 11pt;"><br><ol><li><span style="background-color: transparent; font-size: 11pt;">On the Search Bar under "My Cart" you may either type in the Store where you want to shop or type in the name of the product you want to add in your cart.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then click on the "Cart Button" to review the products you have in your cart,</span></li><li><span style="background-color: transparent; font-size: 11pt;">Click on "Proceed Checkout" once you are done shopping.</span></li></ol></span><span style="background-color: transparent; font-size: 11pt;"><br></span><span style="background-color: transparent; font-size: 11pt;"><br></span>
+
+<hr style="margin: 2em 0;">
+ <h2>Payments</h2><b><br>What are the payment methods supported by Galleon Mercado?</b><br><span style="background-color: transparent; font-size: 11pt;">On the checkout page, you may choose from the following payment methods:</span><br><ol><li><span style="background-color: transparent; font-size: 11pt;"><b>Via Paypal</b> (for credit card) and Dragonpay</span></li><li><span style="background-color: transparent; font-size: 11pt;"><b>Via Online Banking: </b>BPI, Chinabank, East West Bank, Metrobank, PBCom, PNB, PSBank, RCBC, Robinsons Bank, Security Bank, Sterling Bank, UCPB, Union Bank.</span></li><li><span style="background-color: transparent; font-size: 11pt;"><b>Via Mobile App: </b>AUB, BPI, Chinabank, Landbank, Maybank, Metrobank, PNB Savings Bank, UCPB, Unionbank, GCash, PayMaya</span></li><li><span style="background-color: transparent; font-size: 11pt;"><b>Via Over the Counter:</b> Bayad Center, Chinabank, East West Bank, Equicom, ECPay, Landbank, LBC, Malayan Bank, Metrobank, M. Lhuillier, PNB, RCBC, Security Bank, SM, Sterling Bank, Sun Savings Bank, UCPB, Unionbank</span></li><li><span style="background-color: transparent; font-size: 11pt;"><b>Via GCash/PayMaya Virtual Card Pay</b> for Credit Card/Paypal or to transfer money to our BDO Account.&nbsp;</span></li></ol>Note: Payment will be in prepaid in FULL prior to fulfillment of an order<br><br><b>Why is Cash Upon Delivery (COD) not acceptable as a payment option?</b><br><span style="background-color: transparent; font-size: 11pt;">Cash Upon Delivery is not available for all transactions for Buyers protection. Galleon Mercado secures Buyers by holding money until the tracking shows that your order is delivered, this way Sellers are not able to scam Buyers.&nbsp;</span><span style="background-color: transparent; font-size: 11pt;">Also,  Sellers ship items through their preferred Delivery Partners</span><span style="background-color: transparent; font-size: 11pt;">&nbsp;which we do not have control in Cash Upon Delivery (COD).&nbsp;<br><br></span><span style="background-color: transparent; font-size: 11pt;">We are encouraging Buyers to make payments using these convenient and secured Payment Methods</span><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;"><a rel="nofollow" href="https://docs.google.com/document/d/11iPHcC2njne6xINgEvLuDOn71bUqNpHCgJddTAtXTDQ/edit#heading=h.jcwci2yrwigc"><br><br></a></span><b>How to make an Over the Counter payment?</b><br><ol><li> On the Checkout page, click on Choose Payment</li><li> Under "Via Over the Counter", choose the payment center that is convenient to you:</li></ol><b>For Bayad Center/ChinaBank/EastWest Bank/ ECpay/ LandBank/ LBC/ Metrobank/ M. Lhullier/ PNB/ RCBC/ Robinsons Bank/ Security Bank/ SM/ Sterling Bank/ UCPB/ UnionBank</b><br><ol><li>Redirected to dragon pay and enter your source of payment.</li><li>Then enter your email/number.</li><li>Then you'll receive an instruction on how to pay in your email or mobile number.</li></ol><b><br>For Equicom / Malayan Bank / Sun Savings Bank<br></b><ol><li><span style="font-size: 14.6667px;">Click on "Instructions"</span></li><li><span style="font-size: 14.6667px;">Then follow on how to pay using the mobile app via instapay.</span></li><li><span style="font-size: 14.6667px;">Once done enter confirmation reference and upload a screenshot of the confirmation from the app.</span></li><li><span style="font-size: 14.6667px;">Then press confirm</span></li></ol><b>How to make a credit card/debit card payment?</b><br><span style="background-color: transparent; font-size: 11pt;">You don't need to create a Paypal Account if paying with Credit Card/Debit Card. Please follow these step-by-step instructions:</span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">On the checkout page, choose "Paypal" as your payment method, then press â"Confirm Payment" You will be redirected to Paypal website.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Press "Pay with a Bank Account or Credit Card" Button,</span></li><li><span style="background-color: transparent; font-size: 11pt;">Type in your Card details, Billing Address, Contact Information, and make sure to agree on Paypal's Privacy Statement, then </span></li><li><span style="background-color: transparent; font-size: 11pt;">Press "Pay Now" button</span></li><li><span style="background-color: transparent; font-size: 11pt;">Optional: After payment Press Button "Return to Merchant"</span></li></ol><span style="background-color: transparent; font-size: 11pt;">Note: No need to create a Paypal account if paying with credit/debit card. Subsidized Paypal Transaction Fee of 4.5% + Php 15.00 to be shouldered by the Buyer.
+
+<!--StartFragment--><br><span style="background-color: transparent;"><b><br>How to make an online banking payment?</b></span><!--EndFragment-->
+
+</span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">On the Checkout page, click on Choose Payment</span></li><li><span style="background-color: transparent; font-size: 11pt;">Under "Via Online Banking", choose your preferred Bank:</span></li></ol><span style="background-color: transparent; font-size: 11pt;"><b> For BPI/Chinabank/Metrobank/PNB/Security Bank/Sterling Bank/UCPB/UnionBank</b></span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">You will be redirected to DragonPay, choose your source of payment. </span></li><li><span style="background-color: transparent; font-size: 11pt;">Then  type in your email/number. </span></li><li><span style="background-color: transparent; font-size: 11pt;">Then you'll receive instructions on how to pay through your email or mobile number.</span></li></ol><span style="background-color: transparent; font-size: 11pt;"><b> For Eastwest bank/PBcom/PSBank/RCBC/ thought Robinsons Bank</b></span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Click on "Instructions"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then follow on how to pay using the mobile app via Instapay. </span></li><li><span style="background-color: transparent; font-size: 11pt;">Once done, type in the confirmation reference and upload a screenshot of the confirmation from the app. </span></li><li><span style="background-color: transparent; font-size: 11pt;">Then press confirm.</span></li></ol><b>How to make a payment via mobile app?</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;"> On the Checkout page, click on Choose Payment</span></li><li><span style="background-color: transparent; font-size: 11pt;"> Under "Via Mobile App", choose the mobile app that is convenient to you</span></li></ol><span style="background-color: transparent; font-size: 11pt;">  <b>For AUB/ BPI/ ChinaBank/ LandBank/ MayBank/ Metrobank/ PNB/ UCPB/ UnionBank</b></span><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Click on "Instructions"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Then follow on how to pay using the mobile app via Instapay. </span></li><li><span style="background-color: transparent; font-size: 11pt;">Once done, type in the confirmation reference and upload a screenshot of the confirmation from the app. </span></li><li><span style="background-color: transparent; font-size: 11pt;">Then press confirm.</span></li></ol><b>How to Pay with GCAsh/ PayMaya Virtual Card?</b><br> <br> <b>For GCash Payment:</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Open the GCash App</span></li><li><span style="background-color: transparent; font-size: 11pt;">Select "Show More" and then select "Pay Online"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Select Pay with American Express VirtualPay"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Enter your Email Address</span></li><li><span style="background-color: transparent; font-size: 11pt;">Confirm by selecting "Okay"</span></li><li><span style="background-color: transparent; font-size: 11pt;">You will receive a confirmation sent to your email, and you can now enjoy using your GCash American Express Virtual Card to pay via Paypal, Credit Card, you may also use bank transfer option to deposit to our BDO account</span></li></ol> <b>For PayMaya:</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Once you successfully register from PayMaya</span></li><li><span style="background-color: transparent; font-size: 11pt;">Open the PayMaya App to activate your virtual card</span></li><li><span style="background-color: transparent; font-size: 11pt;">Select "Online Payment Card Number"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Type in your personal information</span></li><li><span style="background-color: transparent; font-size: 11pt;">You now have your very own PayMaya virtual card to pay via Paypal, Credit Card, you may also use bank transfer option to deposit to our BDO account.</span></li></ol><b>Can I change my payment method?</b><br><span style="background-color: transparent; font-size: 11pt;">Buyers can only change the payment method if the payment has not been made yet.&nbsp;</span><span style="background-color: transparent; font-size: 11pt;">You can choose your payment methods on the checkout page.<br><br><br></span>
+
+<hr style="margin: 2em 0;">
+<h2>Shipping and Delivery</h2><b> <br>Who are the Delivery Partners of Galleon Mercado<br></b>Galleon Mercado has partnered with various and trusted logistics providers nationwide to get your orders delivered fast. However, it is the Seller's prerogative whom to use, they can also use their own fleet of riders if they have any, therefore Buyers should contact the Seller to discuss shipping option and fees.<br><br><span style="background-color: transparent; font-size: 11pt;">Seller's may set their logistics providers:</span><br><ul><li><a rel="nofollow" href="https://www.lalamove.com/philippines/manila/fil/deliver"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Lalamove</span></a></li><li><a rel="nofollow" href="https://www.grab.com/ph/express/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Grab</span></a></li><li><a rel="nofollow" href="https://www.transportify.com.ph/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">transportify</span></a></li><li><a rel="nofollow" href="https://mrspeedy.ph/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Mr.Speedy</span></a></li><li><a rel="nofollow" href="https://blitz.delivery/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Blitz Delivery</span></a></li><li><a rel="nofollow" href="https://www.mober.ph/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Mober</span></a></li><li><a rel="nofollow" href="https://www.happymove.com.ph/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Happymove</span></a></li><li><a rel="nofollow" href="https://www.lastmile.ph/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Last Mile</span></a></li><li><a rel="nofollow" href="https://angkas.com/"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">Angkas</span></a></li><li><a rel="nofollow" href="https://www.facebook.com/JoyRidePHILIPPINES"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">JoyRide</span></a></li><li><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;"><a rel="nofollow" href="https://www.airship.me/">Airship</a></span></li><li>Pay</li></ul><br><b>How to choose a Shipping Option for my order shipment?&nbsp;</b><br><span style="background-color: transparent; font-size: 11pt;">Shipping options are based on the option/s set by the Seller, thus if there's none, Buyers should</span><span style="background-color: transparent; font-size: 11pt;">&nbsp;contact the Seller directly to discuss it with them.&nbsp; &nbsp;<br><br></span><b>How to track orders from Galleon Mercado?</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Visit </span><a rel="nofollow" href="https://mercado.galleon.ph/home"><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">http://mercado.galleon.ph/home</span></a></li><li><span style="background-color: transparent; font-size: 11pt;">At the top-right corner, click on "Track my Order"</span></li><li><span style="background-color: transparent; font-size: 11pt;">Type in your "Order No" and the "Cellphone No." you used upon registration or checkout</span></li><li><span style="background-color: transparent; font-size: 11pt;">Click on "Submit"</span></li></ol><b>What should I do if I haven't received my order yet?<br></b>We highly recommend that you constantly check and track the status of your orders through the Galleon Mercado Website from time to time. <br><ol><li>Buyers can also check with the Delivery Partners set by the Seller. Sellers on the other hand should provide details such as Name of delivery company, the tracking number, etc through the website.</li><li>Buyers must contact the Seller to make a follow up and Sellers must respond to the Buyer soon as possible, and</li><li>If there is no response from the Seller within 3 business days, Buyer(s) can request for a return/refund by contacting Galleon Mercado Customer Service Team. Galleon Mercado customer service will respond to the Buyer within 2 business days with the resolution.</li></ol><b>What to do if my order is lost, damaged or failed to be delivered?</b><br>In the event the item the Buyer purchased is damaged, lost or failed to be delivered: <br><ol><li>Buyers must contact the Seller directly to report and Seller must provide a possible resolution within 1-3 business days. Galleon Mercado on the other hand will hold the Buyer’s payment not until the Seller provides a resolution.</li><li>If there is no response from the Seller after 3  business days, Buyer(s) can request for a return/refund by contacting Galleon Mercado Customer Service Team. Galleon Mercado customer service will respond to the Buyer within 2 business days with the resolution.</li></ol>Refer to this link: <a rel="nofollow" href="https://mercado.galleon.ph/document/terms-and-conditions">https://mercado.galleon.ph/document/terms-and-conditions</a> for Galleon Mercado’s Terms and Conditions about returns/replacements/refund.<!--EndFragment-->
+
+<br><br><b>How can I arrange an order pick up/drop off?</b><br><span style="background-color: transparent; font-size: 11pt;">Buyers can contact the Seller directly if order pick up/drop off is possible.&nbsp;
+<br><br></span><b>Does Gallen Mercado have Same-Day Delivery?</b><br>Seller(s) can immediately prepare delivery on the same day/next day once a Buyer’s payment for the order has been remitted and verified, but again&nbsp; Buyers must contact the Seller directly to discuss their delivery options and cost if it is not set.<ol><li>Same day if order payment is received and verified by Galleon by 1PM</li><li>Next day if order payment is received and verified by Galleon after 1PM</li></ol><b>When is the Estimated Time of Arrival (ETA) of my order?</b><br><span style="background-color: transparent; font-size: 11pt;">Delivery of an order varies from item to item and seller to seller. Again, Buyers must contact the Seller to discuss delivery options and cost.<br></span><span style="background-color: transparent; font-size: 11pt;"><br><br></span>
+
+<hr style="margin: 2em 0;">
+<h2>Cancellations, Returns and Refunds</h2><h4><b><br></b></h4><h4><b>Cancellations</b></h4><b><br>When and how can a Buyer cancel an order?</b><br>Orders can only be cancelled when the items are not yet handed over to the Delivery Partners set by Seller. Buyer must contact the Seller directly to request for cancellation of an order.<br><br>Refer to this link: <a rel="nofollow" href="https://mercado.galleon.ph/document/terms-and-conditions">https://mercado.galleon.ph/document/terms-and-conditions</a> for Galleon Mercado’s Terms and Conditions about returns/replacements/refund.<br><h4><b><br></b></h4><h4><b>Returns and Replacement</b></h4><b><br>How can a Buyer return an item or request for a replacement?<br></b>Orders can be returned if Seller agrees to the return of the item. Buyer may request a return or replacement by contacting the Seller directly. Shipping costs in returning the item should be agreed upon by Buyer and Seller. Shipping cost for the delivery of any replacement should be agreed upon by Buyer and Seller.&nbsp;<br><br><b> Buyer may return an order when the following conditions are met:</b><br><ul><li>Damaged Item</li><li>Defective Item</li><li>Wrong item delivered</li><li>Missing items/parts</li><li>Does not fit</li><li>Used items</li><li>Items not as advertised</li><li>Item may not be authentic</li><li>Expired product</li></ul> <b>The following may not be returned or replaced depending on Seller:</b><ul><li>Goods that are perishable or may otherwise deteriorate or expire rapidly, such as groceries;</li><li>Goods that are not suitable for return due to health protection or hygienic reasons, such as cosmetics, swimwear and underwear.</li></ul>Refer to this link: <a rel="nofollow" href="https://mercado.galleon.ph/document/terms-and-conditions">https://mercado.galleon.ph/document/terms-and-conditions</a> for Galleon Mercado’s Terms and Conditions about return/replacement/refund.<h4><b><br></b></h4><h4><b>Disputes and Refunds</b></h4><b><br>How can a Buyer raise a dispute to Galleon Mercado?</b><br>In the event a problem arises in a transaction, the Buyer and Seller agree to communicate with each other first to attempt to resolve such dispute by mutual discussions. If the dispute cannot be resolved by mutual discussions after three (3) business days, Buyers may contact Galleon Mercado to arbitrate and provide a resolution within two (2) business days.<br><br>Refer to this link: <a rel="nofollow" href="https://mercado.galleon.ph/document/terms-and-conditions">https://mercado.galleon.ph/document/terms-and-conditions</a> for Galleon Mercado’s Terms and Conditions.<br><br><b>How to get a refund through Galleon Mercado?</b><br><span style="background-color: transparent; font-size: 11pt;">Galleon Mercado will provide refunds to Buyers via Bank transfer for Cancellations and Disputes. Galleon Mercado shall have no liability for refunds offered by Seller in excess of the purchase price.<br><br></span><b> Refunds is initiated when the following conditions are met:</b><span style="background-color: transparent; font-size: 11pt;"><b></b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Order is cancelled by Seller</span></li><li><span style="background-color: transparent; font-size: 11pt;">Order is cancelled by Buyer and Seller approves</span></li><li><span style="background-color: transparent; font-size: 11pt;">Products not delivered by seller</span></li><li><span style="background-color: transparent; font-size: 11pt;">Disputes in favor of Buyer</span></li></ol>
+
+<!--StartFragment--><b> *Important Reminders:</b><ol><li><span style="background-color: transparent; font-size: 11pt;">Return/Refunds due to change of mind will not be accepted.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Please note that it depends on the type of product. Return of personal items such as undergarments, innergarments, perishable goods and grocery items, and adult products is prohibited.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Buyers can only request for a return/refund once the dispute has been approved by Galleon Mercado.</span></li></ol></span><b>How long does it take to process a refund?</b><br><span style="background-color: transparent; font-size: 11pt;">Once a return/refund is approved by Galleon Mercado, Buyers will be notified through email and SMS. Refund process usually takes 8-10 business days.&nbsp;&nbsp;<br></span> <br><b> </b><b>*Follow the instructions on how to request for return/refund:</b><br><ol><li><span style="background-color: transparent; font-size: 11pt;">Provide us your Full Name, Phone number you used upon placing the order and the Order No.</span></li><li><span style="background-color: transparent; font-size: 11pt;">Give us a detailed reason why you request for return/refund.</span></li><li><span style="font-size: 14.6667px;">For now, Buyers</span>&nbsp;may contact our Customer Service Team through:</li></ol><span style="background-color: transparent; font-size: 11pt;"><span style="background-color: transparent; font-size: 11pt;"><b>  Live Chat through our FB Page</b><span style="background-color: transparent; font-size: 11pt;">: </span><a rel="nofollow" href="https://m.me/galleonmercadoseller">
+  \\\\\
+
+<!--StartFragment--><b><span style="color: rgb(17, 85, 204); background-color: transparent; font-size: 11pt;">m.me/galleonmercado</span></b><!--EndFragment-->
+
+</a></span><a rel="nofollow" href="https://m.me/galleonmercado"></a><br><b>  Email: 
+
+<!--StartFragment-->
+
+<!--StartFragment--><b><a href="mailto:support.mercado@galleon.ph">support.mercado@galleon.ph</a></b><!--EndFragment-->
+<br></b><br>Refer to this link: <a rel="nofollow" href="https://mercado.galleon.ph/document/terms-and-conditions">https://mercado.galleon.ph/document/terms-and-conditions</a> for Galleon Mercado’s Terms and Conditions.
+
+</span><br><span style="background-color: transparent; font-size: 11pt;"><b></b></span><div><h3><br></h3></div><!--EndFragment-->
+
+<br><br><div>&nbsp;<br><h2><b><div><span style="font-size: 14.6667px;">
+<!--EndFragment-->
+
+
+
+        </div>
+        
+      </div>
+    </section>
+  </main><!-- End #main -->
+
+
+</section>
+      
+      
+
+
+
+
+
+ <!-- ============================ Footer ========================= -->
+  <footer class="page-foot"><div class="container pt-4">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a class="brand" href="/" title="Galleon.ph - Search, Discover, Buy.">
+        <img alt="Galleon.ph Logo" src="https://galleon-v5.s3-ap-southeast-1.amazonaws.com/images/logo/mercado-logo-black.png" />
+      </a>
+
+      <address class="location">
+        <i class="fas fa-fw fa-map-marker-alt"></i>
+        Unit 2502-2503, 25th flr Raffles Corporate Center, F. Ortigas Jr. Ave, Ortigas Center, Pasig City, Metro Manila, Philippines 1600
+      </address>
+
+      <a class="link-email text-default" href="/cdn-cgi/l/email-protection#3a575f48595b5e5514494f4a4a55484e7a5d5b56565f5554144a52">
+        <i class="fas fa-fw fa-envelope"></i>
+        <span class="__cf_email__" data-cfemail="29444c5b4a484d46075a5c5959465b5d694e4845454c4647075941">[email&#160;protected]</span>
+      </a>
+
+    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a class="text-default link-sitemap" href="./index.html" title="Home">Home</a>
+      <a class="text-default link-sitemap" href="./about-us.html" title="About Us">About Us</a>
+      <a class="text-default link-sitemap" href="./how-to-buy.html" title="How to Buy Guide">How to Buy Guide</a>
+      <a class="text-default link-sitemap" href="./payment.html" title="Payment">Payment</a>
+      <a class="text-default link-sitemap" href="./delivery-schedule.html" title="Delivery Schedule">Delivery Schedule</a>
+      <a class="text-default link-sitemap" href="./restricted-items.html" title="Restricted Items">Restricted Items</a>
+      <a class="text-default link-sitemap" href="./cancellations-and-returns.html" title="Cancellations and Returns">Cancellations &amp; Returns</a>
+      <a class="text-default link-sitemap" href="./privacy-policy.html" title="Privacy Policy">Privacy Policy</a>
+      <a class="text-default link-sitemap" href="./terms-and-conditions.html" title="Terms and Conditions">Terms And Conditions</a>
+      <a class="text-default link-sitemap" href="#" title="Warranty and Returns">Warranty And Returns</a>
+      <a class="text-default link-sitemap" href="./faq.html" title="Support and FAQ">Support And FAQ</a>
+      <a class="text-default link-sitemap" href="#" target="_blank" title="Business Documents">Business Documents</a>
+      <a class="text-default link-sitemap" href="#" target="_blank" title="Sell on Mercado">Sell on Mercado</a>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <h3>WHO WE ARE</h3>
+      <p>STERLING GALLEON MERCADO is a LOCAL online marketplace geared to this new age of post-COVID-19. We are part of the STERLING PAPER GROUP OF COMPANIES.</p>
+
+      <h3>SHOPPING REDEFINED!</h3>
+
+      <p>Providing you the ability to discover sellers and search for great finds just around your city, directly sent to the convenience of your homes.</p>
+
+      <h3>HASSLE-FREE PAYMENT</h3>
+
+      <p>Pay via any of our multiple payment channels such as Paypal, Dragon pay,  online bank transfers, and over the counter payments.</p>
+
+      <h3>SAFER TRANSACTIONS</h3>
+
+      <p>We value our customers and rest assured that our sellers are trusted merchants. Any unresolved order disputes with sellers will be arbitrated by Galleon Mercado. You can be sure that your transactions and payments are safe with us.</p>
+    </div>
+  </div>
+</div>
+</footer><!-- End Footer -->
+
+  
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
